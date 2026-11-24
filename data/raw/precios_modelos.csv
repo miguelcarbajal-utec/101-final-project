@@ -1,0 +1,4 @@
+modelo,precio_entrada,precio_salida,capacidad
+pequeno,0.25,1.25,200
+mediano,3.00,15.00,1000
+grande,15.00,75.00,1000000
