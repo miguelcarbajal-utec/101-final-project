@@ -729,7 +729,7 @@ body.editing-mode [contenteditable="true"] {
         </script>
       </div>
       <p class="subtitle anim-4 mt-16 editable" style="font-size:14px;">
-        Criterio de Huanchaco: la mayoría de prompts son cortos (mediana = 300), pero la cola derecha (&gt;1000 tokens) dispara los costos si no se enruta.
+        Distribución lognormal (cola pesada): la mayoría de prompts son cortos (mediana = 300), pero la cola derecha (&gt;1000 tokens) dispara los costos si no se enruta.
       </p>
       <script type="application/json" class="slide-notes">
       {"title":"Tráfico de Colas Pesadas (Lognormal)","script":"El tráfico real de IA no es uniforme ni normal; tiene cola pesada hacia la derecha. Con una sola llamada a np.random.lognormal generamos las 15,000 consultas de entrada y salida. La mayoría son cortas, pero un pequeño porcentaje supera los 1,000 tokens.","notes":["Mediana de entrada: 300 tokens; salida: 400 tokens; sigma: 0.8","Semilla fija (SEMILLA = 42) para reproducibilidad científica","Justifica el uso de múltiples modelos según tamaño de prompt"]}
@@ -956,13 +956,13 @@ body.editing-mode [contenteditable="true"] {
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-front border-cyan">
               <div class="flip-icon">&#9878;&#65039;</div>
-              <div class="flip-title editable">Calibración del Sistema</div>
-              <div class="flip-subtitle highlight-cyan editable">FACTOR_LUMEN = 1.0</div>
+              <div class="flip-title editable">Benchmark de Políticas</div>
+              <div class="flip-subtitle highlight-cyan editable">P1 vs P2 vs P3</div>
               <div class="flip-hint">clic para voltear</div>
             </div>
             <div class="flip-back">
               <div class="flip-icon-big">&#9878;&#65039;</div>
-              <div class="flip-detail editable">Multiplicador escalar aplicado en <strong>calcular_costo()</strong> mediante broadcasting para calibrar sensibilidad de tarifas.</div>
+              <div class="flip-detail editable">Compara el enrutamiento por umbrales frente a extremos (todo grande o todo pequeño) sobre las mismas <strong>15,000 consultas</strong>.</div>
             </div>
           </div>
         </div>
@@ -982,7 +982,7 @@ body.editing-mode [contenteditable="true"] {
         </div>
       </div>
       <script type="application/json" class="slide-notes">
-      {"title":"Extensiones y Validación del Motor","script":"Además de la simulación base, el proyecto incluye cuatro piezas clave: un tope presupuestario al 60% que fuerza el uso del modelo pequeño al agotarse, ingesta de datos reales con Dolly-15k, el factor de calibración FACTOR_LUMEN y una suite completa de pruebas unitarias con pytest.","notes":["Presupuesto tope: fallback automático a índice 0","Dolly-15k: contraste entre datos sintéticos y reales","FACTOR_LUMEN: ajuste global por broadcasting","pytest: garantiza integridad de formas y bordes matriciales"]}
+      {"title":"Extensiones y Validación del Motor","script":"Además de la simulación base, el proyecto incluye cuatro piezas clave: un tope presupuestario al 60% que fuerza el uso del modelo pequeño al agotarse, ingesta de datos reales con Dolly-15k, el benchmark comparativo de tres políticas (P1, P2 y P3) y una suite completa de pruebas unitarias con pytest.","notes":["Presupuesto tope: fallback automático a índice 0","Dolly-15k: contraste entre datos sintéticos y reales","Políticas P1/P2/P3: equilibrio entre costo total y SLA","pytest: garantiza integridad de formas y bordes matriciales"]}
       </script>
     </div>
 

@@ -27,6 +27,3 @@ DISPERSION = 0.8
 
 # 7. Semilla de reproducibilidad
 SEMILLA = 42
-
-# 8. Factor de calibración del sistema (buena práctica de calibración)
-FACTOR_LUMEN = 1.0

@@ -11,7 +11,7 @@ def generar_consultas(
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Genera matrices de tokens de entrada y salida para toda la simulación.
-    Aplica una distribución de colas pesadas según el criterio de Huanchaco.
+    Aplica una distribución lognormal de colas pesadas para modelar tráfico realista de IA.
     
     Parámetros:
         num_dias: Número de días a simular.

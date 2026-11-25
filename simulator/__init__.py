@@ -13,8 +13,7 @@ from .config import (
     TOKENS_TIPICOS_ENTRADA,
     TOKENS_TIPICOS_SALIDA,
     DISPERSION,
-    SEMILLA,
-    FACTOR_LUMEN
+    SEMILLA
 )
 from .generator import generar_consultas, descargar_y_procesar_dolly
 from .policies import asignar_modelo, politica_todo_grande, politica_todo_pequeno
@@ -33,7 +32,6 @@ __all__ = [
     "TOKENS_TIPICOS_SALIDA",
     "DISPERSION",
     "SEMILLA",
-    "FACTOR_LUMEN",
     "generar_consultas",
     "descargar_y_procesar_dolly",
     "asignar_modelo",
